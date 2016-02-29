@@ -16,9 +16,9 @@
 
 /* Update by K. Townsend (Adafruit Industries) for lighter typedefs, and
  * extended sensor support to include color, voltage and current */
- 
-#ifndef _ADAFRUIT_SENSOR_H
-#define _ADAFRUIT_SENSOR_H
+
+#ifndef _SENSOR_H
+#define _SENSOR_H
 
 #if ARDUINO >= 100
  #include "Arduino.h"
@@ -136,17 +136,17 @@ typedef struct
     int32_t  min_delay;                       /**< min delay in microseconds between events. zero = not a constant rate */
 } sensor_t;
 
-class Adafruit_Sensor {
+class Sensor {
  public:
   // Constructor(s)
-  Adafruit_Sensor() {}
-  virtual ~Adafruit_Sensor() {}
+  Sensor() {}
+  virtual ~Sensor() {}
 
   // These must be defined by the subclass
   virtual void enableAutoRange(bool enabled) {};
   virtual bool getEvent(sensors_event_t*) = 0;
   virtual void getSensor(sensor_t*) = 0;
-  
+
  private:
   bool _autoRange;
 };
