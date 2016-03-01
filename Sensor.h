@@ -20,45 +20,41 @@
 #ifndef _SENSOR_H
 #define _SENSOR_H
 
-#if ARDUINO >= 100
- #include "Arduino.h"
- #include "Print.h"
-#else
- #include "WProgram.h"
-#endif
+#include "Arduino.h"
+#include "Print.h"
 
 /* Intentionally modeled after sensors.h in the Android API:
  * https://github.com/android/platform_hardware_libhardware/blob/master/include/hardware/sensors.h */
 
 /* Constants */
 #define SENSORS_GRAVITY_EARTH             (9.80665F)              /**< Earth's gravity in m/s^2 */
-#define SENSORS_GRAVITY_MOON              (1.6F)                  /**< The moon's gravity in m/s^2 */
-#define SENSORS_GRAVITY_SUN               (275.0F)                /**< The sun's gravity in m/s^2 */
-#define SENSORS_GRAVITY_STANDARD          (SENSORS_GRAVITY_EARTH)
-#define SENSORS_MAGFIELD_EARTH_MAX        (60.0F)                 /**< Maximum magnetic field on Earth's surface */
-#define SENSORS_MAGFIELD_EARTH_MIN        (30.0F)                 /**< Minimum magnetic field on Earth's surface */
+//#define SENSORS_GRAVITY_MOON              (1.6F)                  /**< The moon's gravity in m/s^2 */
+//#define SENSORS_GRAVITY_SUN               (275.0F)                /**< The sun's gravity in m/s^2 */
+//#define SENSORS_GRAVITY_STANDARD          (SENSORS_GRAVITY_EARTH)
+//#define SENSORS_MAGFIELD_EARTH_MAX        (60.0F)                 /**< Maximum magnetic field on Earth's surface */
+//#define SENSORS_MAGFIELD_EARTH_MIN        (30.0F)                 /**< Minimum magnetic field on Earth's surface */
 #define SENSORS_PRESSURE_SEALEVELHPA      (1013.25F)              /**< Average sea level pressure is 1013.25 hPa */
 #define SENSORS_DPS_TO_RADS               (0.017453293F)          /**< Degrees/s to rad/s multiplier */
-#define SENSORS_GAUSS_TO_MICROTESLA       (100)                   /**< Gauss to micro-Tesla multiplier */
+//#define SENSORS_GAUSS_TO_MICROTESLA       (100)                   /**< Gauss to micro-Tesla multiplier */
 
 /** Sensor types */
 typedef enum
 {
   SENSOR_TYPE_ACCELEROMETER         = (1),   /**< Gravity + linear acceleration */
-  SENSOR_TYPE_MAGNETIC_FIELD        = (2),
+//  SENSOR_TYPE_MAGNETIC_FIELD        = (2),
   SENSOR_TYPE_ORIENTATION           = (3),
   SENSOR_TYPE_GYROSCOPE             = (4),
-  SENSOR_TYPE_LIGHT                 = (5),
+//  SENSOR_TYPE_LIGHT                 = (5),
   SENSOR_TYPE_PRESSURE              = (6),
-  SENSOR_TYPE_PROXIMITY             = (8),
+//  SENSOR_TYPE_PROXIMITY             = (8),
   SENSOR_TYPE_GRAVITY               = (9),
   SENSOR_TYPE_LINEAR_ACCELERATION   = (10),  /**< Acceleration not including gravity */
   SENSOR_TYPE_ROTATION_VECTOR       = (11),
   SENSOR_TYPE_RELATIVE_HUMIDITY     = (12),
   SENSOR_TYPE_AMBIENT_TEMPERATURE   = (13),
-  SENSOR_TYPE_VOLTAGE               = (15),
-  SENSOR_TYPE_CURRENT               = (16),
-  SENSOR_TYPE_COLOR                 = (17)
+//  SENSOR_TYPE_VOLTAGE               = (15),
+//  SENSOR_TYPE_CURRENT               = (16),
+//  SENSOR_TYPE_COLOR                 = (17)
 } sensors_type_t;
 
 /** struct sensors_vec_s is used to return a vector in a common format. */
@@ -82,18 +78,20 @@ typedef struct {
 } sensors_vec_t;
 
 /** struct sensors_color_s is used to return color data in a common format. */
+/*
 typedef struct {
     union {
         float c[3];
-        /* RGB color space */
+         RGB color space
         struct {
-            float r;       /**< Red component */
-            float g;       /**< Green component */
-            float b;       /**< Blue component */
+            float r;       *< Red component
+            float g;       *< Green component
+            float b;       *< Blue component
         };
     };
-    uint32_t rgba;         /**< 24-bit RGBA value */
+    uint32_t rgba;         *< 24-bit RGBA value
 } sensors_color_t;
+*/
 
 /* Sensor event (36 bytes) */
 /** struct sensor_event_s is used to provide a single sensor event in a common format. */
